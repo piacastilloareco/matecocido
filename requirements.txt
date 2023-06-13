@@ -63,7 +63,6 @@ PySocks
 python-dateutil
 python-snappy
 pytz
-pywin32
 pyzmq
 regex
 requests
