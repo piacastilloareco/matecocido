@@ -10,10 +10,10 @@ app = FastAPI(title='PROYECTO INDIVIDUAL Nº1  - Pia Castillo Areco DT11')
 
 # Leer el archivo CSV 
 
-df = pd.read_csv(r"C:/Users/Economia/Escritorio/Henry/Henry-env/new_df.csv", sep=",", encoding = "utf-8")
-df2= pd.read_csv(r"C:/Users/Economia/Escritorio/Henry/Henry-env/new_df2.csv", sep=",", encoding = "utf-8")
-df3= pd.read_csv(r"C:/Users/Economia/Escritorio/Henry/Henry-env/new_df3.csv", sep=",", encoding = "utf-8")
-df_encoded =  pd.read_csv(r"C:/Users/Economia/Escritorio/Henry/Henry-env/dummy.csv", sep=",", encoding = "utf-8")
+df = pd.read_csv('new_df.csv')
+df2 = pd.read_csv('new_df2.csv')
+df3 = pd.read_csv('new_df3.csv')
+df_encoded =  pd.read_csv('dummy.csv')
 
 # Función de películas por mes
 
@@ -134,7 +134,7 @@ def get_director(nombre_director:str):
 
 @app.get('/get_recomendacion/{title}')
 def recomendacion(title: str, n: int = 5):
-    df_encoded =  pd.read_csv(r"C:/Users/Economia/Escritorio/Henry/Henry-env/dummy.csv", sep=",", encoding = "utf-8")        
+    df_encoded =  pd.read_csv('dummy.csv')        
     
     # Paso 2: Filtrar las películas que comparten al menos dos géneros con la película de referencia
     generos_pelicula_referencia = df_encoded[df_encoded['title'] == title].drop(['title', 'vote_average'], axis=1)
